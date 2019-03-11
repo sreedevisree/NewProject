@@ -1,5 +1,6 @@
 package com.training.dataproviders;
 
+import java.lang.reflect.Method;
 import java.util.List;
 
 import org.testng.annotations.DataProvider;
@@ -9,7 +10,7 @@ import com.training.dao.ELearningDAO;
 import com.training.readexcel.ApachePOIExcelRead;
 import com.training.readexcel.ReadExcel;
 
-public class LoginDataProviders {
+public class AddCustAndCustGroupDetailsProviders {
 
 	@DataProvider(name = "db-inputs")
 	public Object [][] getDBData() {
@@ -31,10 +32,15 @@ public class LoginDataProviders {
 	}
 	
 	@DataProvider(name = "excel-inputs")
-	public Object[][] getExcelData(){
-		
-		String fileName ="C:/Users/SreedeviSreedharan/Desktop/New folder (2)/New/Test Data/Uniform_Test Data.xlsx"; 
-		return new ApachePOIExcelRead().getExcelContent(fileName); 
+	public Object[][] getExcelData(Method m){
+		if(m.getName().equalsIgnoreCase("addCustomerGroup")){
+			String fileName ="C:/Users/SreedeviSreedharan/Desktop/New folder (2)/New/Test Data/Uniform_CustGrp_Test Data.xlsx"; 
+			return new ApachePOIExcelRead().getExcelContent(fileName);
+		} 
+		else{
+			String fileName ="C:/Users/SreedeviSreedharan/Desktop/New folder (2)/New/Test Data/Uniform_Cust_Test Data.xlsx"; 
+			return new ApachePOIExcelRead().getExcelContent(fileName);
+		}
 	}
 	
 	@DataProvider(name = "xls-inputs")

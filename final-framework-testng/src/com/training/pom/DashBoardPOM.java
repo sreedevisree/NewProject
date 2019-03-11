@@ -15,6 +15,43 @@ public class DashBoardPOM {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	// ********************Start of Customer icon
+	//clicking on customer icon of the dashboard
+	@FindBy(xpath="//li[@id='customer']")
+	private WebElement customerIcn;
+	
+	public void clickCustomerIcn(){
+		this.customerIcn.click();
+	}
+	
+	// Click on Customer Groups link
+	@FindBy(xpath="/html[1]/body[1]/div[1]/nav[1]/ul[1]/li[6]/ul[1]/li[2]/a[1]")
+	private WebElement CustGrp_CustomerIcn;
+	
+	public void clickCustGrp_CustomerIcn(){
+		this.CustGrp_CustomerIcn.click();
+	}
+	
+	// ********************End of Customer icon
+	
+	// ********************Start of Marketing section
+	//clicking on customer group
+	@FindBy(xpath="//a[contains(text(),'Customer Groups')]")
+	private WebElement customerGroup_CustomerLnk;
+	
+	public void clickCustomerGroup_CustomerLnk(){
+		this.customerGroup_CustomerLnk.click();
+	}
+	
+	//clicking on the customer link
+	@FindBy(xpath="//li[@class='active open']//a[contains(text(),'Customers')]")
+	private WebElement custLnk_CustomerLnk;
+	
+	public void clickCustLnk_CustomerLnk(){
+		this.custLnk_CustomerLnk.click();
+	}
+	
+	// ********************End of Marketing section
 	
 	// ********************Start of Marketing section
 	// clicking on Marketing icon
@@ -78,7 +115,7 @@ public class DashBoardPOM {
 	}
 
 	// customer link
-	@FindBy(xpath = "//a[@class='parent'][contains(text(),'Customers')]")
+	@FindBy(xpath = "/html[1]/body[1]/div[1]/nav[1]/ul[1]/li[6]/a[1]/i[1]")
 	private WebElement customerLnk;
 
 	// clicking on customre link

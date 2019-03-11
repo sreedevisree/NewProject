@@ -21,7 +21,7 @@ import com.training.utility.DriverNames;
 
 public class LoginExcelTest {
 	private WebDriver driver;
-	private String baseUrl;
+	private String baseURL;
 	private LoginPOM loginPOM;
 	private static Properties properties;
 	private ScreenShot screenShot;
@@ -37,10 +37,10 @@ public class LoginExcelTest {
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginPOM = new LoginPOM(driver);
-		baseUrl = properties.getProperty("baseURL");
+		baseURL = properties.getProperty("adminURL");
 		screenShot = new ScreenShot(driver);
 		// open the browser
-		driver.get(baseUrl);
+		driver.get(baseURL);
 	}
 
 	@AfterMethod

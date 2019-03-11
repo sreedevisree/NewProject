@@ -43,8 +43,8 @@ public class ReadExcel {
 
 	// Test method, change the path of the .xls file 
 	public static void main(String[] args) {
-		String[][] result = new ReadExcel().getExcelData("C:/Users/Naveen/Desktop/Testing.xls", "Sheet1"); 
-		
+		String[][] result = new ReadExcel().getExcelData("C:/Users/SreedeviSreedharan/Desktop/New folder (2)/New/Book1.xls", "Sheet1"); 
+		//String[][] result = new ReadExcel().getExcelData("C:/Users/Naveen/Desktop/Testing.xls", "Sheet1");
 		for(String [] temp : result){
 			for(String temp1: temp){
 				System.out.println(temp1);

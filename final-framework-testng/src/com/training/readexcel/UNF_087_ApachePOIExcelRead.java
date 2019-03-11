@@ -9,17 +9,8 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-/**
- * 
- * @author Naveen
- * @see this class will take the records from excel sheet, and return it as list
- *      of list of object, and can be generic, can given any records until it
- *      exists. Test it with main method provided, and the path is hard coded,
- *      participatns are asked to refractor this path in the property file and
- *      access.
- */
-public class ApachePOIExcelRead {
-	public  String [][] getExcelContent(String fileName) {
+public class UNF_087_ApachePOIExcelRead {
+	public  String [][] getExcelContent(String fileName,String sheetName) {
 		int rowCount =0; 
 		String [][] list1 = null; 
 		
@@ -31,7 +22,7 @@ public class ApachePOIExcelRead {
 			XSSFWorkbook workbook = new XSSFWorkbook(file);
 
 			// Get first/desired sheet from the workbook
-			XSSFSheet sheet = workbook.getSheetAt(0);
+			XSSFSheet sheet = workbook.getSheet(sheetName);
 			
 			int rowTotal = sheet.getLastRowNum();
 
@@ -71,6 +62,11 @@ public class ApachePOIExcelRead {
 							tempList1[cellCount] =cell.getStringCellValue();
 						}
 						break;
+					case Cell.CELL_TYPE_BLANK :
+						if(cell.getStringCellValue()!=null){
+							tempList1[cellCount] =cell.getStringCellValue();
+						}
+						break;
 					}
 					cellCount ++; 
 				}
@@ -86,15 +82,5 @@ public class ApachePOIExcelRead {
 		}
 
 		return list1;
-	}
-
-	public static void main(String[] args) {
-		String fileName = "C:/Users/SreedeviSreedharan/Desktop/New folder (2)/New/Test Data/Uniform_Test Data.xlsx";
-		for(String [] temp : new ApachePOIExcelRead().getExcelContent(fileName)){
-			for(String  tt : temp){
-				System.out.println(tt);
-			}
-		}
-
 	}
 }

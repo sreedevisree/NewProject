@@ -3,12 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.training.sanity.tests.UNF_060_SendEmailMarketing_Test">
+      <class name="com.training.sanity.tests.UNF_089_ChangeOrderStatus_Test">
         <methods>
-          <include name="addDiscountToProduct"/>
           <include name="setUpBeforeClass"/>
+          <include name="tearDown"/>
+          <include name="changeOrderStatus"/>
         </methods>
-      </class> <!-- com.training.sanity.tests.UNF_060_SendEmailMarketing_Test -->
+      </class> <!-- com.training.sanity.tests.UNF_089_ChangeOrderStatus_Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

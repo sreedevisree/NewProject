@@ -9,16 +9,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-/**
- * 
- * @author Naveen
- * @see this class will take the records from excel sheet, and return it as list
- *      of list of object, and can be generic, can given any records until it
- *      exists. Test it with main method provided, and the path is hard coded,
- *      participatns are asked to refractor this path in the property file and
- *      access.
- */
-public class ApachePOIExcelRead {
+public class UNF_090_ApachePOIExcelRead {
 	public  String [][] getExcelContent(String fileName) {
 		int rowCount =0; 
 		String [][] list1 = null; 
@@ -71,7 +62,13 @@ public class ApachePOIExcelRead {
 							tempList1[cellCount] =cell.getStringCellValue();
 						}
 						break;
+					case Cell.CELL_TYPE_BLANK:
+						if(cell.getStringCellValue()!=null){
+							tempList1[cellCount] =cell.getStringCellValue();
+						}
+						break;
 					}
+					
 					cellCount ++; 
 				}
 				if(tempList1 != null){
@@ -90,7 +87,7 @@ public class ApachePOIExcelRead {
 
 	public static void main(String[] args) {
 		String fileName = "C:/Users/SreedeviSreedharan/Desktop/New folder (2)/New/Test Data/Uniform_Test Data.xlsx";
-		for(String [] temp : new ApachePOIExcelRead().getExcelContent(fileName)){
+		for(String [] temp : new UNF_090_ApachePOIExcelRead().getExcelContent(fileName)){
 			for(String  tt : temp){
 				System.out.println(tt);
 			}
